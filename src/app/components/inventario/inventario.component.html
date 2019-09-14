@@ -1,0 +1,76 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Inventario</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Listado de Inventario</h5>
+        <div class="my-2 text-left">
+            <button class="btn btn-rounder btn-primary" type="button" [routerLink]="['/home']">
+                Crear Inventario
+            </button>
+        </div>
+        <div *ngIf="inventarios?.length ==0" class="alert alert-info">
+            No hay registro en la base de datos
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Codigo Producto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inventario of inventarios">
+                    <td>{{ inventario.codigoProducto }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inventario of inventarios">
+                    <td>{{ inventario.fecha }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Tipo Registro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inventario of inventarios">
+                    <td>{{ inventario.tipoRegistro }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inventario of inventarios">
+                    <td>{{ inventario.precio }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Entradas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inventario of inventarios">
+                    <td>{{ inventario.entradas }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Salidas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inventario of inventarios">
+                    <td>{{ inventario.salidas }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Ventas OnLine</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,16 +9,31 @@
             <li class="nav-item active">
                 <a class="nav-link" [routerLink]="['home']">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['categorias']">Categorias</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['tipoempaques']">TipoEmpaque</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Entidades
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['categorias']">Categorias</a>
+                    <a class="dropdown-item" [routerLink]="['tipoempaques']">Tipo de Empaques</a>
+                    <a class="dropdown-item" [routerLink]="['inventarios']">Inventarios</a>
+                    <a class="dropdown-item" [routerLink]="['productos']">Productos</a>
+                    <a class="dropdown-item" [routerLink]="['clientes']">Clientes</a>
+                    <a class="dropdown-item" [routerLink]="['emailclientes']">Email Clientes</a>
+                    <a class="dropdown-item" [routerLink]="['telefonoclientes']">Telefono Clientes</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <ul class="navbar-nav navbar-right">
+            <li *ngIf="!authService.isAuthenticated()"><a [routerLink]="['login']" class="btn btn-outline-primary">Sign In</a></li>
+            <li *ngIf="authService.isAuthenticated()" class="dropdown">
+                <a class="btn btn-outline-primary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Sergio Boror</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <button (click)="logout()" class="dropdown-item" type="submit">Sign out</button>
+                </div>
+            </li>
+        </ul>
     </div>
 </nav>

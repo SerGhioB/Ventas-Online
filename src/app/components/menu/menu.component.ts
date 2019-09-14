@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../login/service/auth.service';
+import { Router, Route } from '@angular/router';
+import swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logout(): void {
+    const username = this.authService.usuario.email;
+    this.authService.logout();
+    swal.fire('Logout', `Hola ${username}, has cerrado sesión con éxito!!`, 'success');
+    this.router.navigate(['/login']);
   }
 
 }

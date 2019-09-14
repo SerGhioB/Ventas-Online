@@ -1,0 +1,106 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Productos</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Listado de Productos</h5>
+        <div class="my-2 text-left">
+            <button class="btn btn-rounder btn-primary" type="button" [routerLink]="['/home']">
+                    Crear Producto
+                </button>
+        </div>
+        <div *ngIf="productos?.length ==0" class="alert alert-info">
+            No hay registro en la base de datos
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Codigo Producto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{ producto.codigoProducto }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Codigo Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{ producto.codigoCategoria }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Codigo Empaque</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{ producto.codigoEmpaque }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Descripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{ producto.descripcion }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Precio Unitario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{ producto.precioUnitario }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Precio Por Docena</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{ producto.precioPorDocena }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Precio Por Mayor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{ producto.precioPorMayor }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Existencia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{ producto.existencia }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{ producto.imagen }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

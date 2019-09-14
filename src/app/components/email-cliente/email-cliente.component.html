@@ -1,0 +1,46 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Email Clientes</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Listado de Email Clientes</h5>
+        <div class="my-2 text-left">
+            <button class="btn btn-rounder btn-primary" type="button" [routerLink]="['/home']">
+                Crear Email Cliente
+            </button>
+        </div>
+        <div *ngIf="emailclientes?.length ==0" class="alert alert-info">
+            No hay registro en la base de datos
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Codigo Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emailcliente of emailclientes">
+                    <td>{{ emailcliente.codigoEmail }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emailcliente of emailclientes">
+                    <td>{{ emailcliente.email }}</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>NIT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emailcliente of emailclientes">
+                    <td>{{ emailcliente.nit }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
