@@ -1,104 +1,31 @@
+<app-producto-form [producto]="productosSeleccionado"></app-producto-form>
 <div class="card border-primary mb-3">
     <div class="card-header">Productos</div>
     <div class="card-body text-primary">
         <h5 class="card-title">Listado de Productos</h5>
-        <div class="my-2 text-left">
-            <button class="btn btn-rounder btn-primary" type="button" [routerLink]="['/home']">
-                    Crear Producto
-                </button>
-        </div>
-        <div *ngIf="productos?.length ==0" class="alert alert-info">
+        <div class="my-2 text-left"></div>
+        <button class="btn btn-primary" type="button" (click)="abrirModal()">Crear Producto</button>
+        <div *ngIf="productos?.length == 0" class="alert alert-info">
             No hay registro en la base de datos
         </div>
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped" style="margin-top: 50px">
             <thead>
                 <tr>
                     <th>Codigo Producto</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let producto of productos">
-                    <td>{{ producto.codigoProducto }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <th>Codigo Categoria</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let producto of productos">
-                    <td>{{ producto.codigoCategoria }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <th>Codigo Empaque</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let producto of productos">
-                    <td>{{ producto.codigoEmpaque }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
                     <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Categoria</th>
+                    <th>Tipo Empaque</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let producto of productos">
-                    <td>{{ producto.descripcion }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <th>Precio Unitario</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let producto of productos">
-                    <td>{{ producto.precioUnitario }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <th>Precio Por Docena</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let producto of productos">
-                    <td>{{ producto.precioPorDocena }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <th>Precio Por Mayor</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let producto of productos">
-                    <td>{{ producto.precioPorMayor }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <th>Existencia</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let producto of productos">
-                    <td>{{ producto.existencia }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <th>Imagen</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let producto of productos">
-                    <td>{{ producto.imagen }}</td>
+                    <!--<td><button class="btn btn-success" (click)="abrirModal(producto)">Seleccionar</button></td> -->
+                    <td> <a (click)="abrirModal(producto)">{{producto.codigoProducto}}</a></td>
+                    <td>{{producto.descripcion}}</td>
+                    <td>{{producto.precioUnitario}}</td>
+                    <td>{{producto.categoria.descripcion}}</td>
+                    <td>{{producto.tipoEmpaque.descripcion}}</td>
                 </tr>
             </tbody>
         </table>

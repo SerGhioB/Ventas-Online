@@ -13,11 +13,13 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>Codigo Tipo Empaque</th>
                     <th>Descripción</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let tipoempaque of tipoempaques">
+                    <td>{{ tipoempaque.codigoEmpaque }}</td>
                     <td>{{ tipoempaque.descripcion }}</td>
                 </tr>
             </tbody>

@@ -15,7 +15,12 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms'; // majeno de los formularios
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { EmailClienteComponent } from './components/email-cliente/email-cliente.component';
-import { TelefonoClienteComponent } from './components/telefono-cliente/telefono-cliente.component'; 
+import { TelefonoClienteComponent } from './components/telefono-cliente/telefono-cliente.component';
+import { TokenInterceptor } from './components/login/interceptors/token.interceptor';
+import { AuthInterceptor } from './components/login/interceptors/auth.Interceptors';
+import { ProductoFormComponent } from './components/producto/producto-form/producto-form.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +36,9 @@ import { TelefonoClienteComponent } from './components/telefono-cliente/telefono
     LoginComponent,
     ClienteComponent,
     EmailClienteComponent,
-    TelefonoClienteComponent
+    TelefonoClienteComponent,
+    ProductoFormComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,10 @@ import { TelefonoClienteComponent } from './components/telefono-cliente/telefono
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

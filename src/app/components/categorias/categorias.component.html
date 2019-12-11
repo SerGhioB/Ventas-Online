@@ -13,14 +13,18 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>Codigo Categoria</th>
                     <th>Descripción</th>
+
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let categoria of categorias">
+                    <td>{{ categoria.codigoCategoria }}</td>
                     <td>{{ categoria.descripcion }}</td>
                 </tr>
             </tbody>
         </table>
+        <app-paginator *ngIf="paginador" [paginador]="paginador"></app-paginator>
     </div>
 </div>

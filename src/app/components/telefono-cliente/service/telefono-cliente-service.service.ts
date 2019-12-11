@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { TipoEmpaqueService } from '../../tipo-empaque/service/tipo-empaque-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class TelefonoClienteService {
   constructor(private httpCliente: HttpClient) { }
 
   getData(url: string) {
-    const headers = new HttpHeaders({'Authorization' : `Bearer ${this.token}`});
-    return this.httpCliente.get(`${this.API_URL}/${url}`, {headers});
+    // const headers = new HttpHeaders({'Authorization' : `Bearer ${this.token}`});
+    return this.httpCliente.get<TipoEmpaqueService[]>(`${this.API_URL}/${url}`/*, {headers}*/);
   }
 
   getTelefonoCliente() {

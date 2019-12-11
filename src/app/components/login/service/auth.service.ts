@@ -23,7 +23,7 @@ public get token(): string {
 }
 
 public get usuario(): Usuario {
-  if(this._usuario != null) {
+  if (this._usuario != null) {
     return this._usuario;
   } else if (this._usuario == null && sessionStorage.getItem('usuario') != null) {
     this._usuario = JSON.parse(sessionStorage.getItem('usuario'));
@@ -39,6 +39,7 @@ public get usuario(): Usuario {
       'Content-Type': 'application/json'
     });
     return this.httpClient.post(urlEndPoint, usuario, {headers: httpHeaders});
+    console.log(httpHeaders);
   }
 
   logout(): void {

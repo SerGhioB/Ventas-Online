@@ -13,62 +13,24 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>Codigo Inventario</th>
                     <th>Codigo Producto</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let inventario of inventarios">
-                    <td>{{ inventario.codigoProducto }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
                     <th>Fecha</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let inventario of inventarios">
-                    <td>{{ inventario.fecha }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
                     <th>Tipo Registro</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let inventario of inventarios">
-                    <td>{{ inventario.tipoRegistro }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
                     <th>Precio</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let inventario of inventarios">
-                    <td>{{ inventario.precio }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
                     <th>Entradas</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let inventario of inventarios">
-                    <td>{{ inventario.entradas }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
                     <th>Salidas</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let inventario of inventarios">
-                    <td>{{ inventario.salidas }}</td>
+                    <td>{{ inventario.codigoInventario }}</td>
+                    <td>{{ inventario.codigoProducto }}</td>
+                    <td>{{ inventario.Fecha }}</td>
+                    <td>{{ inventario.TipoRegistro }}</td>
+                    <td>{{ inventario.Precio }}</td>
+                    <td>{{ inventario.Entradas }}</td>
+                    <td>{{ inventario.Salidas }}</td>
                 </tr>
             </tbody>
         </table>

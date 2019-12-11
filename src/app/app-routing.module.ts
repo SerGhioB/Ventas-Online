@@ -9,18 +9,25 @@ import { LoginComponent } from './components/login/login.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { EmailClienteComponent} from './components/email-cliente/email-cliente.component';
 import { TelefonoClienteComponent } from './components/telefono-cliente/telefono-cliente.component';
+import { AuthguardGuard } from './components/guards/authguard.guard';
+import { ProductoFormComponent } from './components/producto/producto-form/producto-form.component';
+
 
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'categorias', component: CategoriasComponent},
-  {path: 'tipoempaques', component: TipoEmpaqueComponent},
-  {path: 'inventarios', component: InventarioComponent},
-  {path: 'productos', component: ProductoComponent},
+  {path: 'home', component: HomeComponent, canActivate: [AuthguardGuard]},
+  {path: 'categorias', component: CategoriasComponent, canActivate: [AuthguardGuard]},
+  {path: 'categorias/page/:page', component: CategoriasComponent, canActivate: [AuthguardGuard]},
+  {path: 'tipoempaques', component: TipoEmpaqueComponent, canActivate: [AuthguardGuard]},
+  {path: 'categorias', component: CategoriasComponent, canActivate: [AuthguardGuard]},
+  {path: 'inventarios', component: InventarioComponent, canActivate: [AuthguardGuard]},
+  {path: 'productos', component: ProductoComponent, canActivate: [AuthguardGuard]},
   {path: 'login', component: LoginComponent},
-  {path: 'clientes', component: ClienteComponent},
-  {path: 'emailclientes', component: EmailClienteComponent},
-  {path: 'telefonoclientes', component: TelefonoClienteComponent},
+  {path: 'clientes', component: ClienteComponent, canActivate: [AuthguardGuard] },
+  {path: 'emailclientes', component: EmailClienteComponent, canActivate: [AuthguardGuard]},
+  {path: 'telefonoclientes', component: TelefonoClienteComponent, canActivate: [AuthguardGuard]},
+  {path: 'productoForm', component: ProductoFormComponent, canActivate: [AuthguardGuard]},
+/*  {path: 'producto/form/id'}*/
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
 
 ];

@@ -13,7 +13,7 @@ export class InventarioService {
 
   getData(url: string) {
     const headers = new HttpHeaders({'Authorization' : `Bearer ${this.token}`});
-    return this.httpCliente.get(`${this.API_URL}/${url}`, {headers});
+    return this.httpCliente.get(`${this.API_URL}/${url}`/*, {headers}*/);
   }
 
   getInventario(){

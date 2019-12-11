@@ -10,11 +10,11 @@ export class TipoEmpaqueService {
   constructor(private httpCliente: HttpClient) { }
 
   getData(url: string) {
-    const headers = new HttpHeaders({'Authorization' : `Bearer ${this.token}`});
-    return this.httpCliente.get(`${this.API_URL}/${url}`, {headers});
+    // const headers = new HttpHeaders({'Authorization' : `Bearer ${this.token}`});
+    return this.httpCliente.get(`${this.API_URL}/${url}`/*, {headers}*/);
   }
 
-  getTipoEmpaque(){
+  getTipoEmpaque() {
     return this.getData('tipoempaque');
   }
 
