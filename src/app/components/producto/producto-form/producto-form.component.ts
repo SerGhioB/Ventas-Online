@@ -5,7 +5,7 @@ import { TipoEmpaque } from '../../tipo-empaque/tipo-empaque';
 import { CategoriaService } from '../../categorias/service/categoria-service.service';
 import { TipoEmpaqueService } from '../../tipo-empaque/service/tipo-empaque-service.service';
 import { ProductoService } from '../service/producto-service.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ModalProductoService } from '../modal-producto.service';
 import { ProductoCreacionDTO } from '../producto-creacion-dto';
@@ -18,6 +18,7 @@ import { ProductoCreacionDTO } from '../producto-creacion-dto';
 export class ProductoFormComponent implements OnInit {
   titulo: string;
   @Input() producto: Producto;
+  productos: Producto[] = [];
   // @Input() producto: ProductoCreacionDTO;
   categorias: Categoria[] = [];
   tipoEmpaques: TipoEmpaque[] = [];
@@ -28,9 +29,20 @@ export class ProductoFormComponent implements OnInit {
     private tipoEmpaqueService: TipoEmpaqueService,
     public modalProductoService: ModalProductoService,
     private router: Router,
-    private productoService: ProductoService) { }
+    private activatedRoute: ActivatedRoute,
+    private productoService: ProductoService) {this.titulo = "Agregar Producto"}
 
   ngOnInit() {
+    this.activatedRoute.paramMap.subscribe(params => {
+      let page: number = + params.get('page');
+      if (!page) {
+        page = 0;
+      }
+      this.productoService.getProductoPage(page)
+      .subscribe((response: any) => {
+        this.productos = response.content as Producto[];
+      });
+    });
     this.categoriaService.getCategoria().subscribe((response: any) => this.categorias = response as Categoria[]);
     this.tipoEmpaqueService.getTipoEmpaque().subscribe((response: any) => this.tipoEmpaques = response as TipoEmpaque[]);
   }
@@ -43,7 +55,7 @@ export class ProductoFormComponent implements OnInit {
     this.productoService.create(nuevo).subscribe(
       producto => {
       Swal.fire ('Nuevo producto',
-      `El producto ${producto.descripcion} ha sido creado con exito!!`,
+      `El producto ${this.producto.descripcion} ha sido creado con exito!!`,
       'success');
       producto.categoria = this.producto.categoria;
       producto.tipoEmpaque = this.producto.tipoEmpaque;

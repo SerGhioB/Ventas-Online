@@ -34,6 +34,10 @@ export class ProductoService {
    return this.httpClient.get<Producto[]>(`${this.API_URL}/producto`);
  }
 
+ getProductoPage(page?: number): Observable<any>{
+   return this.httpClient.get(`${this.API_URL}/producto/page/${page}`);
+ }
+
   getCategorias(): Observable<Categoria[]> {
     return this.httpClient.get<Categoria[]>(`${this.API_URL}/categoria`);
   }
