@@ -24,6 +24,7 @@
                 <tr *ngFor="let producto of productos">
                     <!--<td><button class="btn btn-success" (click)="abrirModal(producto)">Seleccionar</button></td> -->
                     <!--<td> <a (click)="abrirModal(producto)">{{producto.codigoProducto}}</a></td>-->
+                    <td>{{producto.codigoProducto}}</td>
                     <td>{{producto.descripcion}}</td>
                     <td>{{producto.precioUnitario}}</td>
                     <td>{{producto.categoria.descripcion}}</td>

@@ -17,7 +17,7 @@ export class ProductoComponent implements OnInit {
   paginador: any;
 
   constructor(
-    private productoService: ProductoService, 
+    private productoService: ProductoService,
     private modalProductoService: ModalProductoService,
     private activatedRoute: ActivatedRoute) {
     this.productoService.getProductos().subscribe((data: any) => {
@@ -26,17 +26,6 @@ export class ProductoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.paramMap.subscribe(params => {
-      let page: number = + params.get('page');
-      if (!page) {
-        page = 0;
-      }
-      this.productoService.getProductoPage(page)
-        .subscribe((response: any) => {
-          this.productos = response.content as Producto[];
-          this.paginador = response;
-        });
-    });
     this.modalProductoService.notificarCambio.subscribe( producto => {
       if (this.tipo === 'new') {
         this.productos.push(producto);

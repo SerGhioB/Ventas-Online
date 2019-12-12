@@ -20,6 +20,7 @@ import { TokenInterceptor } from './components/login/interceptors/token.intercep
 import { AuthInterceptor } from './components/login/interceptors/auth.Interceptors';
 import { ProductoFormComponent } from './components/producto/producto-form/producto-form.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { CategoriasFormComponent } from './components/categorias/categorias-form/categorias-form.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     EmailClienteComponent,
     TelefonoClienteComponent,
     ProductoFormComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    CategoriasFormComponent
   ],
   imports: [
     BrowserModule,
