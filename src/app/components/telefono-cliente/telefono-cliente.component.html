@@ -14,43 +14,20 @@
             <thead>
                 <tr>
                     <th>Codigo Telefono</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let telefonocliente of telefonoclientes">
-                    <td>{{ telefonocliente.codigoTelefono }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <th>Numero Telefoncio</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let telefonocliente of telefonoclientes">
-                    <td>{{ telefonocliente.numero }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
+                    <th>Numero telefonico</th>
                     <th>Descripcion</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let telefonocliente of telefonoclientes">
-                    <td>{{ telefonocliente.descripcion }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
                     <th>NIT</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let telefonocliente of telefonoclientes">
+                    <td>{{ telefonocliente.codigoTelefono }}</td>
+                    <td>{{ telefonocliente.numero }}</td>
+                    <td>{{ telefonocliente.descripcion }}</td>
                     <td>{{ telefonocliente.nit }}</td>
                 </tr>
-            </tbody>
+            </tbody>           
         </table>
+        <app-paginator *ngIf="paginador" [paginador]="paginador"></app-paginator>
     </div>
 </div>

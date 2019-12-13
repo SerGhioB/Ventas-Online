@@ -8,8 +8,6 @@ import { TipoEmpaque } from '../../tipo-empaque/tipo-empaque';
 import { catchError, map } from 'rxjs/operators';
 import { ProductoCreacionDTO } from '../producto-creacion-dto';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -60,7 +58,8 @@ export class ProductoService {
   }
 
   delete(id: number): Observable<Producto> {
-    return this.httpClient.delete<Producto>(`${this.API_URL}/producto/${id}`).pipe(
+    return this.httpClient.delete<Producto>(`${this.API_URL}/producto/${id}`)
+    .pipe(
       catchError(e => {
         return throwError(e);
       })
@@ -91,5 +90,4 @@ export class ProductoService {
       })
     );
   }
-
 }

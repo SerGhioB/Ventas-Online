@@ -14,43 +14,20 @@
             <thead>
                 <tr>
                     <th>Nit</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let cliente of clientes">
-                    <td>{{ cliente.nit }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
                     <th>DPI</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let cliente of clientes">
-                    <td>{{ cliente.dpi }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
                     <th>Nombre</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let cliente of clientes">
-                    <td>{{ cliente.nombre }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
                     <th>Direccion</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let cliente of clientes">
+                    <td>{{ cliente.nit }}</td>
+                    <td>{{ cliente.dpi }}</td>
+                    <td>{{ cliente.nombre }}</td>
                     <td>{{ cliente.direccion }}</td>
                 </tr>
-            </tbody>
+            </tbody>                       
         </table>
+        <app-paginator *ngIf="paginador" [paginador]="paginador"></app-paginator>
     </div>
 </div>

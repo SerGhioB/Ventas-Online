@@ -14,33 +14,18 @@
             <thead>
                 <tr>
                     <th>Codigo Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let emailcliente of emailclientes">
-                    <td>{{ emailcliente.codigoEmail }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
                     <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let emailcliente of emailclientes">
-                    <td>{{ emailcliente.email }}</td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
                     <th>NIT</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let emailcliente of emailclientes">
+                    <td>{{ emailcliente.codigoEmail }}</td>
+                    <td>{{ emailcliente.email }}</td>
                     <td>{{ emailcliente.nit }}</td>
                 </tr>
-            </tbody>
+            </tbody>            
         </table>
+        <app-paginator *ngIf="paginador" [paginador]="paginador"></app-paginator>
     </div>
 </div>
