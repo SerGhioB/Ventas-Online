@@ -21,6 +21,11 @@ import { AuthInterceptor } from './components/login/interceptors/auth.Intercepto
 import { ProductoFormComponent } from './components/producto/producto-form/producto-form.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { CategoriasFormComponent } from './components/categorias/categorias-form/categorias-form.component';
+import { ClienteFormComponent } from './components/cliente/cliente-form/cliente-form.component';
+import { EmailClienteFormComponent } from './components/email-cliente/email-cliente-form/email-cliente-form.component';
+import { InventarioFormComponent } from './components/inventario/inventario-form/inventario-form.component';
+import { TelefonoClienteFormComponent } from './components/telefono-cliente/telefono-cliente-form/telefono-cliente-form.component';
+import { TipoEmpaqueFormComponent } from './components/tipo-empaque/tipo-empaque-form/tipo-empaque-form.component';
 
 
 @NgModule({
@@ -40,7 +45,12 @@ import { CategoriasFormComponent } from './components/categorias/categorias-form
     TelefonoClienteComponent,
     ProductoFormComponent,
     PaginatorComponent,
-    CategoriasFormComponent
+    CategoriasFormComponent,
+    ClienteFormComponent,
+    EmailClienteFormComponent,
+    InventarioFormComponent,
+    TelefonoClienteFormComponent,
+    TipoEmpaqueFormComponent
   ],
   imports: [
     BrowserModule,
