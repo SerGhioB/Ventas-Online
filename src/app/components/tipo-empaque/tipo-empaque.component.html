@@ -1,13 +1,13 @@
+<app-tipo-empaque-form [tipoEmpaque] ></app-tipo-empaque-form>
 <div class="card border-primary mb-3">
     <div class="card-header">Tipo Empaques</div>
     <div class="card-body text-primary">
         <h5 class="card-title">Listado de Tipo de Empaques</h5>
-        <div class="my-2 text-left">
-            <button class="btn btn-rounder btn-primary" type="button" [routerLink]="['/home']">
+        <div class="my-2 text-left"></div>
+        <button class="btn btn-rounder btn-primary" type="button" (click)="abrirModal()">
                 Crear Tipo Empaque
-            </button>
-        </div>
-        <div *ngIf="tipoempaques?.length ==0" class="alert alert-info">
+        </button>
+        <div *ngIf="tipoEmpaques?.length ==0" class="alert alert-info">
             No hay registro en la base de datos
         </div>
         <table class="table table-bordered table-striped">
@@ -18,9 +18,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let tipoempaque of tipoempaques">
+                <tr *ngFor="let tipoEmpaque of tipoEmpaques">
                     <td>{{ tipoempaque.codigoEmpaque }}</td>
                     <td>{{ tipoempaque.descripcion }}</td>
+                    <td><button (click)="abrirModal(tipoEmpaque)" type="button" name="editar" class="btn btn-primary btn-sm">Editar</button></td>
+                    <td><button (click)="delete(tipoEmpaque)" type="button" name="eliminar" class="btn btn-danger btn-sm">Eliminar</button></td>
                 </tr>
             </tbody>
         </table>

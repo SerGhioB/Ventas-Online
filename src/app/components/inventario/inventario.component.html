@@ -1,16 +1,16 @@
+<app-inventario-form [inventario]="inventariosSeleccionado" ></app-inventario-form>
 <div class="card border-primary mb-3">
     <div class="card-header">Inventario</div>
     <div class="card-body text-primary">
         <h5 class="card-title">Listado de Inventario</h5>
-        <div class="my-2 text-left">
-            <button class="btn btn-rounder btn-primary" type="button" [routerLink]="['/home']">
+        <div class="my-2 text-left"></div>
+        <button class="btn btn-rounder btn-primary" type="button" (click)="abrirModal()">
                 Crear Inventario
             </button>
-        </div>
         <div *ngIf="inventarios?.length ==0" class="alert alert-info">
             No hay registro en la base de datos
         </div>
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped" style="margin-top: 50px">
             <thead>
                 <tr>
                     <th>Codigo Inventario</th>
@@ -31,6 +31,8 @@
                     <td>{{ inventario.Precio }}</td>
                     <td>{{ inventario.Entradas }}</td>
                     <td>{{ inventario.Salidas }}</td>
+                    <td><button (click)="abrirModal(inventario)" type="button" name="editar" class="btn btn-primary btn-sm">Editar</button></td>
+                    <td><button (click)="delete(inventario)" type="button" name="eliminar" class="btn btn-danger btn-sm">Eliminar</button></td>
                 </tr>
             </tbody>
         </table>

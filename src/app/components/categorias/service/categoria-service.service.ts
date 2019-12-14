@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Categoria } from '../categoria';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { CategoriaCreacionDTO } from '../categoria-creacion-dto';
 
 @Injectable({
   providedIn: 'root'

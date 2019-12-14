@@ -44,7 +44,7 @@ export class ProductoService {
     return this.httpClient.get<TipoEmpaque[]>(`${this.API_URL}/tipoempaque`);
   }
 
-  create(producto: ProductoCreacionDTO): Observable<Producto> {
+  create(producto: ProductoCreacionDTO): Observable<Producto[]> {
     return this.httpClient.post(`${this.API_URL}/producto`, producto)
     .pipe(
       map((response: any) => response as Producto),

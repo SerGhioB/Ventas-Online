@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { TipoEmpaque } from '../tipo-empaque';
 import { catchError, map } from 'rxjs/operators';
+import { TipoEmpaqueCreacionDTO } from '../tipo-empaque-creacion-dto';
 
 @Injectable({
   providedIn: 'root'

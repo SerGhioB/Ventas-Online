@@ -1,16 +1,16 @@
+<app-telefono-cliente-form [telefonoCliente]="telefonoClientesSeleccionado" ></app-telefono-cliente-form>
 <div class="card border-primary mb-3">
     <div class="card-header">Teleono Clientes</div>
     <div class="card-body text-primary">
         <h5 class="card-title">Listado de Telefono Clientes</h5>
-        <div class="my-2 text-left">
-            <button class="btn btn-rounder btn-primary" type="button" [routerLink]="['/home']">
+        <div class="my-2 text-left"></div>
+        <button class="btn btn-rounder btn-primary" type="button" (click)="abrirModal()">
                     Crear Telefono Cliente
-                </button>
-        </div>
-        <div *ngIf="telefonoclientes?.length ==0" class="alert alert-info">
+        </button>
+        <div *ngIf="telefonoClientes?.length ==0" class="alert alert-info">
             No hay registro en la base de datos
         </div>
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped" style="margin-top: 50px">
             <thead>
                 <tr>
                     <th>Codigo Telefono</th>
@@ -20,11 +20,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let telefonocliente of telefonoclientes">
+                <tr *ngFor="let telefonoCliente of telefonoClientes">
                     <td>{{ telefonocliente.codigoTelefono }}</td>
                     <td>{{ telefonocliente.numero }}</td>
                     <td>{{ telefonocliente.descripcion }}</td>
                     <td>{{ telefonocliente.nit }}</td>
+                    <td><button (click)="abrirModal(telefonoCliente)" type="button" name="editar" class="btn btn-primary btn-sm">Editar</button></td>
+                    <td><button (click)="delete(telefonoCliente)" type="button" name="eliminar" class="btn btn-danger btn-sm">Eliminar</button></td>
                 </tr>
             </tbody>           
         </table>
